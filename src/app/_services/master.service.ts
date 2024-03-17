@@ -27,6 +27,13 @@ export class MasterService {
   CreateCustomer(customer: Customer) {
     return this.http.post('https://localhost:7143/api/Customer/Create', customer);
   }
+
+  UpdateCustomer(customer: Customer) {
+    return this.http.put('https://localhost:7143/api/Customer/Update?code='+customer.code, customer);
+  }
+  DeleteCustomer(code:string) {
+    return this.http.delete('https://localhost:7143/api/Customer/Remove?code='+code);
+  }
   
   haveAccess() {
     return true;
