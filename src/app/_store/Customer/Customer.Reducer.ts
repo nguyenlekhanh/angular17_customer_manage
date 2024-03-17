@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { customerState } from "./Customer.State";
-import { loadCustomerFail, loadCustomerSuccess } from "./Customer.Actions";
+import { getCustomerSuccess, loadCustomerFail, loadCustomerSuccess } from "./Customer.Actions";
 
 const _CustomerReducer = createReducer(customerState,
     on(loadCustomerSuccess, (state, action) => {
@@ -22,7 +22,14 @@ const _CustomerReducer = createReducer(customerState,
             list: [],
             errormessage: action.errormessage
         }
-    })
+    }),
+    on(getCustomerSuccess, (state, action) => {
+        return {
+            ...state,
+            errormessage: '',
+            editdata:action.obj
+        }
+    }),
 
 )
 

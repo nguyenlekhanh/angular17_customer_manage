@@ -8,13 +8,15 @@ import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { loadCustomer } from '../../_store/Customer/Customer.Actions';
 import { getCutomerList } from '../../_store/Customer/Customer.Selector';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
   standalone: true,
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterLink
   ],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'

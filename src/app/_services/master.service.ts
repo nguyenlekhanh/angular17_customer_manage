@@ -19,4 +19,16 @@ export class MasterService {
 
     return this.http.get<Customer[]>('https://localhost:7143/api/Customer/GetAll');
   }
+
+  GetCustomerbycode(code:string) {
+    return this.http.get<Customer>('https://localhost:7143/api/Customer/Getbycode?code='+code);
+  }
+
+  CreateCustomer(customer: Customer) {
+    return this.http.post('https://localhost:7143/api/Customer/Create', customer);
+  }
+  
+  haveAccess() {
+    return true;
+  }
 }
