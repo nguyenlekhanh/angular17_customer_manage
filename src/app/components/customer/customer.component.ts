@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MasterService } from '../../_services/master.service';
 import { Posts } from '../../../_model/posts';
+import { Customer } from '../../../_model/Customer';
 
 @Component({
   selector: 'app-customer',
@@ -12,16 +13,16 @@ import { Posts } from '../../../_model/posts';
 export class CustomerComponent {
   constructor(private service: MasterService){}
 
-  postData!: Posts[];
+  customerData!: Customer[];
 
   ngOnInit() {
     this.LoadInitialData();
   }
 
   LoadInitialData() {
-    this.service.getAll().subscribe((item) => {
-      this.postData = item;
-      console.log(this.postData);
+    this.service.GetAllCustomer().subscribe((item) => {
+      this.customerData = item;
+      console.log(this.customerData);
     })
   }
 }
